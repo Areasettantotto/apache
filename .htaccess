@@ -1,0 +1,17 @@
+#AuthName "restricted"
+#AuthType Basic
+#AuthUserFile
+#AuthGroupFile /dev/null
+#require valid-user
+
+RewriteEngine On
+Options -Multiviews
+
+RewriteRule ^welcome$ index.php [NC,L]
+
+# Consenti l'accesso diretto al file di log degli errori PHP
+<Files "logs/php_errors.log">
+  Require all granted
+  Satisfy Any
+  Allow from all
+</Files>
